@@ -804,12 +804,15 @@ section{padding:clamp(48px,8vw,100px) 0}
           <button type="button" class="more-btn" data-gal="platos" data-i="0">Ver más fotos <span aria-hidden="true">→</span></button>
         </div>
         <div class="trio">
-          <figure class="ph" data-gal="platos" data-i="0" tabindex="0" style="background-image:var(--nf);background-position:50% 68%" role="button" aria-label="Ver fotos: Pescado frito"><figcaption>Pescado frito</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="0" tabindex="0" style="background-image:var(--nf);background-position:50% 68%" role="button" aria-label="Ver fotos: Filet de Merluza"><figcaption>Filet de Merluza</figcaption></figure>
           <figure class="ph" data-gal="platos" data-i="1" tabindex="0" style="background-image:var(--nn);background-position:50% 55%" role="button" aria-label="Ver fotos: Asado negro"><figcaption>Asado negro</figcaption></figure>
           <figure class="ph" data-gal="platos" data-i="2" tabindex="0" style="background-image:var(--nl);background-position:50% 62%" role="button" aria-label="Ver fotos: Pabellón criollo"><figcaption>Pabellón criollo</figcaption></figure>
           <figure class="ph" data-gal="platos" data-i="3" tabindex="0" style="background-image:var(--ptab);background-position:50% 50%" role="button" aria-label="Ver fotos: Picadas venezolanas"><figcaption>Picadas venezolanas</figcaption></figure>
-          <figure class="ph" data-gal="platos" data-i="7" tabindex="0" style="background-image:var(--pr);background-position:50% 50%" role="button" aria-label="Ver fotos: Papa rellena de carne mechada"><figcaption>Papa rellena de carne mechada</figcaption></figure>
-          <figure class="ph" data-gal="platos" data-i="8" tabindex="0" style="background-image:var(--na);background-position:50% 50%" role="button" aria-label="Ver fotos: Plato criollo"><figcaption>Plato criollo</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="4" tabindex="0" style="background-image:var(--ns);background-position:50% 50%" role="button" aria-label="Ver fotos: Sopa de Res"><figcaption>Sopa de Res</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="5" tabindex="0" style="background-image:var(--nz);background-position:50% 50%" role="button" aria-label="Ver fotos: Pollo a la Plancha"><figcaption>Pollo a la Plancha</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="6" tabindex="0" style="background-image:var(--nk);background-position:50% 50%" role="button" aria-label="Ver fotos: Chuleta Ahumada"><figcaption>Chuleta Ahumada</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="7" tabindex="0" style="background-image:var(--pr);background-position:50% 50%" role="button" aria-label="Ver fotos: Papa Rellena de Carne Mechada"><figcaption>Papa Rellena de Carne Mechada</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="8" tabindex="0" style="background-image:var(--na);background-position:50% 50%" role="button" aria-label="Ver fotos: Plato Criollo"><figcaption>Plato Criollo</figcaption></figure>
         </div>
       </div>
     </div>
@@ -999,19 +1002,19 @@ b.addEventListener("click",function(){var o=p.hidden;p.hidden=!o;b.setAttribute(
     cachapas:{t:"Cachapas",v:["--nc1","--nc2","--nc3","--nc4"]},
     arepas:{t:"Arepas",v:["--pa","--na2","--na3","--na4","--na5","--na6","--na7","--na8"]},
     tequenos:{t:"Tequeños",v:["--nt1","--nt2","--nt3","--nt4"]},
-    platos:{t:"Platos venezolanos",v:["--nf","--nn","--nl","--ptab","--ns","--nz","--nk","--pr","--na"]}
+    platos:{t:"Platos venezolanos",v:["--nf","--nn","--nl","--ptab","--ns","--nz","--nk","--pr","--na"],n:["Filet de Merluza","Asado negro","Pabellón criollo","Picadas venezolanas","Sopa de Res","Pollo a la Plancha","Chuleta Ahumada","Papa Rellena de Carne Mechada","Plato Criollo"]}
   };
   var cs=getComputedStyle(document.documentElement),cur=null,idx=0,imgEl=$("lbI"),thumbs=$("lbH");
   function pic(v){return cs.getPropertyValue(v).trim()}
   function render(){var g=G[cur],n=g.v.length;
     imgEl.classList.add("f");
-    setTimeout(function(){imgEl.style.backgroundImage=pic(g.v[idx]);imgEl.setAttribute("aria-label",g.t+" - foto "+(idx+1)+" de "+n);imgEl.classList.remove("f")},120);
+    setTimeout(function(){imgEl.style.backgroundImage=pic(g.v[idx]);imgEl.setAttribute("aria-label",(g.n?g.n[idx]:g.t)+" - foto "+(idx+1)+" de "+n);imgEl.classList.remove("f")},120);
     $("lbC").textContent=n>1?(idx+1)+" / "+n:"";
     Array.prototype.forEach.call(thumbs.children,function(b,k){b.classList.toggle("on",k===idx)});var a=thumbs.children[idx];if(a)thumbs.scrollTo({left:a.offsetLeft-(thumbs.clientWidth-a.offsetWidth)/2,behavior:"smooth"})}
   function go(d){var n=G[cur].v.length;idx=(idx+d+n)%n;render()}
   function openG(name,i){cur=name;idx=i||0;var g=G[name],n=g.v.length;
     $("lbT").textContent=g.t;thumbs.innerHTML="";
-    g.v.forEach(function(v,k){var b=document.createElement("button");b.type="button";b.style.backgroundImage=pic(v);b.setAttribute("aria-label","Ver foto "+(k+1));b.addEventListener("click",function(){idx=k;render()});thumbs.appendChild(b)});
+    g.v.forEach(function(v,k){var b=document.createElement("button");b.type="button";b.style.backgroundImage=pic(v);b.setAttribute("aria-label",g.n?"Ver foto: "+g.n[k]:"Ver foto "+(k+1));b.addEventListener("click",function(){idx=k;render()});thumbs.appendChild(b)});
     thumbs.hidden=n<2;$("lbP").hidden=$("lbN").hidden=n<2;
     imgEl.style.backgroundImage=pic(g.v[idx]);render();show(lb)}
   document.querySelectorAll("[data-gal]").forEach(function(el){
