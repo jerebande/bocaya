@@ -690,7 +690,9 @@ section{padding:clamp(48px,8vw,100px) 0}
 .sec-close{height:46px}
 /* trio cuadrado para que se vea el plato completo */
 .trio figure{aspect-ratio:1/1;cursor:zoom-in}
-.trio{grid-template-columns:repeat(4,minmax(0,1fr))}
+.trio{grid-template-columns:repeat(5,minmax(0,1fr))}
+:root{--pr:url("assets/papa-rellena.jpg")}
+@media (max-width:520px){.trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .dish[data-gal]{cursor:zoom-in}
 .more-ph{position:absolute;top:16px;right:16px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:8px 14px 6px;border-radius:999px;background:rgba(255,248,224,.92);color:#2B0A0E;font-family:var(--disp);font-weight:800;font-size:16px;line-height:1;box-shadow:0 8px 18px -8px rgba(0,0,0,.5);pointer-events:none}
 .more-ph svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;margin-top:-2px}
@@ -806,6 +808,8 @@ section{padding:clamp(48px,8vw,100px) 0}
           <figure class="ph" data-gal="platos" data-i="1" tabindex="0" style="background-image:var(--nn);background-position:50% 55%" role="button" aria-label="Ver fotos: Asado negro"><figcaption>Asado negro</figcaption></figure>
           <figure class="ph" data-gal="platos" data-i="2" tabindex="0" style="background-image:var(--nl);background-position:50% 62%" role="button" aria-label="Ver fotos: Pabellón criollo"><figcaption>Pabellón criollo</figcaption></figure>
           <figure class="ph" data-gal="platos" data-i="3" tabindex="0" style="background-image:var(--ptab);background-position:50% 50%" role="button" aria-label="Ver fotos: Picadas venezolanas"><figcaption>Picadas venezolanas</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="7" tabindex="0" style="background-image:var(--pr);background-position:50% 50%" role="button" aria-label="Ver fotos: Papa rellena de carne mechada"><figcaption>Papa rellena de carne mechada</figcaption></figure>
+          <figure class="ph" data-gal="platos" data-i="8" tabindex="0" style="background-image:var(--na);background-position:50% 50%" role="button" aria-label="Ver fotos: Plato criollo"><figcaption>Plato criollo</figcaption></figure>
         </div>
       </div>
     </div>
@@ -993,9 +997,9 @@ b.addEventListener("click",function(){var o=p.hidden;p.hidden=!o;b.setAttribute(
   var G={
     empanadas:{t:"Empanadas",v:["--pe","--ne1","--ne6","--ne4","--ne3","--ne2","--ne5","--ne7","--ne8","--pemp"]},
     cachapas:{t:"Cachapas",v:["--nc1","--nc2","--nc3","--nc4"]},
-    arepas:{t:"Arepas",v:["--pa","--na","--na2","--na3","--na4","--na5","--na6","--na7","--na8"]},
+    arepas:{t:"Arepas",v:["--pa","--na2","--na3","--na4","--na5","--na6","--na7","--na8"]},
     tequenos:{t:"Tequeños",v:["--nt1","--nt2","--nt3","--nt4"]},
-    platos:{t:"Platos venezolanos",v:["--nf","--nn","--nl","--ptab","--ns","--nz","--nk"]}
+    platos:{t:"Platos venezolanos",v:["--nf","--nn","--nl","--ptab","--ns","--nz","--nk","--pr","--na"]}
   };
   var cs=getComputedStyle(document.documentElement),cur=null,idx=0,imgEl=$("lbI"),thumbs=$("lbH");
   function pic(v){return cs.getPropertyValue(v).trim()}
