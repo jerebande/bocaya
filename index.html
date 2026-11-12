@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}
 h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1;margin:0}
 
 /* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);background:var(--nav);border-bottom:1px solid rgba(43,10,14,.08)}
+nav{position:absolute;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);background:var(--nav);border-bottom:1px solid rgba(43,10,14,.08)}
 nav .in{max-width:1120px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 nav img{height:30px;display:block}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:16px;border:2px solid transparent;transition:transform .25s cubic-bezier(.2,1.6,.4,1),box-shadow .25s;cursor:pointer}
@@ -439,7 +439,8 @@ body{-webkit-font-smoothing:antialiased}
 section{padding:clamp(72px,10vw,130px) 0}
 /* nav flotante tipo píldora */
 nav{background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;padding:10px 12px 0}
-nav .in{max-width:1120px;border-radius:999px;padding:8px 10px 8px 22px;background:var(--nav);backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);box-shadow:0 10px 34px -10px rgba(43,10,14,.3),inset 0 0 0 1px rgba(255,255,255,.35)}
+nav .in{width:fit-content;max-width:calc(100% - 24px);justify-content:center;border-radius:999px;padding:8px 10px 8px 22px;background:var(--nav);backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);box-shadow:0 10px 34px -10px rgba(43,10,14,.3),inset 0 0 0 1px rgba(255,255,255,.35)}
+nav .in>a[aria-label="Boyacá, inicio"]{display:none}
 /* botones suaves */
 .pill{transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s}
 .pill.red{background:linear-gradient(135deg,#ff3b2f,#ff1a1f);box-shadow:0 10px 24px -8px rgba(255,26,31,.7)}
@@ -732,10 +733,8 @@ section{padding:clamp(48px,8vw,100px) 0}
     <div style="display:flex;gap:10px;align-items:center"><span class="fl" data-flag></span>
       <a class="pill line hide-sm" href="#historia">Nosotros</a>
       <a class="pill line hide-sm" href="#casa" data-open="casa">Empacados al vacío</a>
-      <a class="pill line hide-sm" href="#ubicacion" data-open="ubicacion">Ubicación</a>
       <a class="pill line hide-sm" href="#contacto">Contacto</a>
-      <a class="pill red" href="https://menu.fu.do/boyacasazonlatina" target="_blank" rel="noopener" aria-label="Hacer un pedido en Fudo">Pedir</a>
-      <a class="pill line" href="https://wa.me/5491150185862?text=Hola%20Boyac%C3%A1!%20Quisiera%20reservar%20una%20mesa." target="_blank" rel="noopener" aria-label="Reservar una mesa por WhatsApp">Reservar</a>
+      <a class="pill red" href="https://menu.fu.do/boyacasazonlatina" target="_blank" rel="noopener">Pedido</a>
     </div>
   </div>
 </nav>
@@ -747,8 +746,7 @@ section{padding:clamp(48px,8vw,100px) 0}
     <p class="lead">Sazón con Amor Latino</p>
     <p class="sub">Cocina Venezolana en Palermo, Buenos Aires</p>
     <div class="ctas">
-      <a class="pill red" href="https://menu.fu.do/boyacasazonlatina" target="_blank" rel="noopener">Hacer un pedido</a>
-      <a class="pill line" href="https://wa.me/5491150185862?text=Hola%20Boyac%C3%A1!%20Quisiera%20reservar%20una%20mesa." target="_blank" rel="noopener">Reservar por WhatsApp</a>
+      <a class="pill red" href="https://menu.fu.do/boyacasazonlatina" target="_blank" rel="noopener">Pedido</a>
       <a class="pill line" href="#historia">Conoce Boyacá</a>
     </div>
     <div class="chips">
